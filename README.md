@@ -1,13 +1,7 @@
-# Springboot circuit breaker-hystrix
+# Springboot circuit breaker-hystrix-dashboard
 
-* Cascading failure at one service results in failure to the calling service and this failure goes on to the application
-  who made the initial call.
-* Different circuit breaker pattern providers are:
-    1. Hystrix -provided by netflix
-    2. Spring Retry
-    3. Resilence4j
-
-* Hystrix is a latency and fault tolerance library designed to isolated points of access of remote systems.services and
-  3rd party libraries.
-* Hystrix will stop cascading failure.
-* Hystrix enabled resiliencey in complex distributed systems where failure is inevitable.
+* Include `spring-boot-starter-actuator` and `spring-cloud-starter-netflix-hystrix` and `spring-cloud-netflix-hystrix-dashboard` dependency in pom.xml
+* Annotate `@EnableHystrixDashboard` in main class to enable the hystrix dashboard.
+* Add hystrix related configuration in application.properties or application.yaml file.
+* Launch `localhost:8085/hystrix.stream` to see whether the hystrix stream is working or not.
+* If hystrix.stream is working then run `localhost:8085/hystrix' where we need to provide `localhost:8085/hystrix.stream` and application name and hit enter. We will see the succeed, failed data in user interface.
